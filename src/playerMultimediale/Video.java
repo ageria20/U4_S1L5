@@ -7,10 +7,12 @@ public class Video extends ElementoMultimediale implements Volume, Brightness {
 
     private int brightness;
     private int volume;
+    private int duration;
 
     public Video(String title, int duration, int volume, int brightness) {
-        super(title, duration);
+        super(title);
         this.volume = volume;
+        this.duration = duration;
         this.brightness = brightness;
 
     }
@@ -48,7 +50,7 @@ public class Video extends ElementoMultimediale implements Volume, Brightness {
     @Override
     public void play() {
 
-        for (int i = 0; i <= this.getDuration(); i++) {
+        for (int i = 0; i <= this.duration; i++) {
             System.out.println(this.getTitle() + this.volume() + this.brightness());
         }
 
@@ -67,7 +69,7 @@ public class Video extends ElementoMultimediale implements Volume, Brightness {
     @Override
     public String volume() {
         String volumeStr = "";
-        for (int i = 0; i < this.brightness; i++) {
+        for (int i = 0; i < this.volume; i++) {
             volumeStr += "!";
         }
         return volumeStr;

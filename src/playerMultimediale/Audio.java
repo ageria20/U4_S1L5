@@ -5,9 +5,10 @@ import interfaces.Volume;
 public class Audio extends ElementoMultimediale implements Volume {
 
     private int volume;
+    private int duration;
 
     public Audio(String title, int duration, int volume) {
-        super(title, duration);
+        super(title);
         this.volume = volume;
     }
 
@@ -23,14 +24,19 @@ public class Audio extends ElementoMultimediale implements Volume {
 
     @Override
     public String volume() {
-        return "";
+        String volumeStr = "";
+        for (int i = 0; i < this.volume; i++) {
+            volumeStr += "!";
+        }
+        return volumeStr;
     }
 
 
     @Override
     public String volumeDown() {
+        this.volume--;
         String volumeStr = "";
-        this.volume -= 1;
+
         for (int i = 0; i > this.volume; i++) {
             volumeStr += "!";
         }
@@ -40,7 +46,7 @@ public class Audio extends ElementoMultimediale implements Volume {
     @Override
     public void play() {
 
-        for (int i = 0; i <= this.getDuration(); i++) {
+        for (int i = 0; i <= this.duration; i++) {
             System.out.println(this.getTitle() + this.volume());
         }
 
