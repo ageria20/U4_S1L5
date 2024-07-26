@@ -40,7 +40,7 @@ public class Main {
         }
 
         while (true) {
-            System.out.println("Scegli un opzione");
+            System.out.println("Scegli un opzione, cosa vuoi riprodurre?");
             System.out.println("1 - " + lettoreMultimediale[0].getTitle());
             System.out.println("2 - " + lettoreMultimediale[1].getTitle());
             System.out.println("3 - " + lettoreMultimediale[2].getTitle());
@@ -58,6 +58,7 @@ public class Main {
             }
 
         }
+        scanner.close();
 
     }
 
@@ -70,7 +71,6 @@ public class Main {
         System.out.println("Inserisci un volume iniziale");
         int volume = scanner.nextInt();
         Audio audio = new Audio(title, duration, volume);
-
         return audio;
     }
 
@@ -97,7 +97,7 @@ public class Main {
         System.out.println("Inserisci una luminosita' iniziale");
         int brightness = scanner.nextInt();
         Image img = new Image(title, brightness);
-        
+
         return img;
     }
 
