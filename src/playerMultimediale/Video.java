@@ -17,27 +17,69 @@ public class Video extends ElementoMultimediale implements Volume, Brightness {
 
 
     @Override
-    public void brightnessUp() {
-
+    public String brightnessUp() {
+        this.brightness++;
+        String brightnessStr = "";
+        for (int i = 0; i < this.brightness; i++) {
+            brightnessStr += "*";
+        }
+        return brightnessStr;
     }
 
     @Override
-    public void brightnessDown() {
-
+    public String brightness() {
+        String brightnessStr = "";
+        for (int i = 0; i < this.brightness; i++) {
+            brightnessStr += "*";
+        }
+        return brightnessStr;
     }
 
     @Override
-    public String play() {
-        return "";
+    public String brightnessDown() {
+        this.brightness--;
+        String brightnessStr = "";
+        for (int i = 0; i < this.brightness; i++) {
+            brightnessStr += "*";
+        }
+        return brightnessStr;
+    }
+
+    @Override
+    public void play() {
+
+        for (int i = 0; i <= this.getDuration(); i++) {
+            System.out.println(this.getTitle() + this.volume() + this.brightness());
+        }
+
     }
 
     @Override
     public String volumeUp() {
-        return "";
+        this.volume++;
+        String volumeStr = "";
+        for (int i = 0; i < this.volume; i++) {
+            volumeStr += "!";
+        }
+        return volumeStr;
+    }
+
+    @Override
+    public String volume() {
+        String volumeStr = "";
+        for (int i = 0; i < this.brightness; i++) {
+            volumeStr += "!";
+        }
+        return volumeStr;
     }
 
     @Override
     public String volumeDown() {
-        return "";
+        this.volume--;
+        String volumeStr = "";
+        for (int i = 0; i < this.volume; i++) {
+            volumeStr += "!";
+        }
+        return volumeStr;
     }
 }

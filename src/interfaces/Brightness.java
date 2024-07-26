@@ -2,8 +2,10 @@ package interfaces;
 
 public interface Brightness {
 
-    public void brightnessUp();
+    public String brightnessUp();
+
+    public String brightness();
 
     // da capire
-    public void brightnessDown();
+    public String brightnessDown();
 }

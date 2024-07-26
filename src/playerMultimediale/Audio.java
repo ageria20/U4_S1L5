@@ -11,7 +11,9 @@ public class Audio extends ElementoMultimediale implements Volume {
         this.volume = volume;
     }
 
+    @Override
     public String volumeUp() {
+        this.volume++;
         String volumeStr = "";
         for (int i = 0; i < this.volume; i++) {
             volumeStr += "!";
@@ -19,22 +21,28 @@ public class Audio extends ElementoMultimediale implements Volume {
         return volumeStr;
     }
 
+    @Override
+    public String volume() {
+        return "";
+    }
 
-    // da capire
+
+    @Override
     public String volumeDown() {
         String volumeStr = "";
-        for (int i = 0; i > this.volume; i--) {
-            volumeStr += "";
+        this.volume -= 1;
+        for (int i = 0; i > this.volume; i++) {
+            volumeStr += "!";
         }
         return volumeStr;
     }
 
     @Override
-    public String play() {
-        String titleStr = "";
-        for (int i = 0; i < this.getDuration(); i++) {
-            titleStr += " " + this.getTitle();
+    public void play() {
+
+        for (int i = 0; i <= this.getDuration(); i++) {
+            System.out.println(this.getTitle() + this.volume());
         }
-        return titleStr;
+
     }
 }

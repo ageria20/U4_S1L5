@@ -3,10 +3,11 @@ package interfaces;
 public interface Volume {
 
 
-    public String play();
+    public void play();
 
     public String volumeUp();
 
-    // da capire
+    public String volume();
+
     public String volumeDown();
 }
