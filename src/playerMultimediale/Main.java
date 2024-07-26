@@ -48,8 +48,10 @@ public class Main {
             System.out.println("5 - " + lettoreMultimediale[4].getTitle());
             int choosedValue = scanner.nextInt();
 
-            if (choosedValue == 0) break;
-            else {
+            if (choosedValue == 0) {
+                System.out.println("Bye");
+                break;
+            } else {
                 if (lettoreMultimediale[choosedValue - 1] instanceof Audio || lettoreMultimediale[choosedValue - 1] instanceof Video) {
                     ((Volume) lettoreMultimediale[choosedValue - 1]).play();
                 } else {
