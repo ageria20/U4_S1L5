@@ -1,5 +1,7 @@
 package playerMultimediale;
 
+import interfaces.Volume;
+
 import java.util.Scanner;
 
 public class Main {
@@ -7,44 +9,59 @@ public class Main {
 
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Che cosa vuoi riprodurre o vedere?");
+
 
         ElementoMultimediale[] lettoreMultimediale = new ElementoMultimediale[5];
-//        System.out.println("Inserisci una durata");
-//        int duration = scanner.nextInt();
-//        System.out.println("Inserisci il volume");
-//        int volume = scanner.nextInt();
-//        System.out.println("Inserisci la luminosita'  e premi invio per fare Play");
-//        int brightness = scanner.nextInt();
 
         for (int i = 0; i < lettoreMultimediale.length; i++) {
             System.out.println("Che tipo di file vuoi creare?");
+            System.out.println("Digita Audio");
+            System.out.println("Digita Video");
+            System.out.println("Digita Image");
             String type = scanner.nextLine();
+
             switch (type) {
                 case "audio":
-                    audio();
+                    lettoreMultimediale[i] = audio();
                     break;
                 case "video":
-                    video();
+                    lettoreMultimediale[i] = video();
                     break;
                 case "image":
-                    img();
+                    lettoreMultimediale[i] = img();
+                    break;
+                default:
+                    System.out.println("Inserisci il dato corretto");
+                    i--;
                     break;
 
-                default:
-                    break;
 
             }
         }
 
-//        Audio audio = new Audio(title, duration, volume);
-//        Video video = new Video(title, duration, volume, brightness);
-//        video.play();
+        while (true) {
+            System.out.println("Scegli un opzione");
+            System.out.println("1 - " + lettoreMultimediale[0].getTitle());
+            System.out.println("2 - " + lettoreMultimediale[1].getTitle());
+            System.out.println("3 - " + lettoreMultimediale[2].getTitle());
+            System.out.println("4 - " + lettoreMultimediale[3].getTitle());
+            System.out.println("5 - " + lettoreMultimediale[4].getTitle());
+            int choosedValue = scanner.nextInt();
 
+            if (choosedValue == 0) break;
+            else {
+                if (lettoreMultimediale[choosedValue - 1] instanceof Audio || lettoreMultimediale[choosedValue - 1] instanceof Video) {
+                    ((Volume) lettoreMultimediale[choosedValue - 1]).play();
+                } else {
+                    ((Image) lettoreMultimediale[choosedValue - 1]).show();
+                }
+            }
+
+        }
 
     }
 
-    public static void audio() {
+    public static ElementoMultimediale audio() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Inserisci un titolo");
         String title = scanner.nextLine();
@@ -53,10 +70,11 @@ public class Main {
         System.out.println("Inserisci un volume iniziale");
         int volume = scanner.nextInt();
         Audio audio = new Audio(title, duration, volume);
-        audio.play();
+
+        return audio;
     }
 
-    public static void video() {
+    public static ElementoMultimediale video() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Inserisci un titolo");
         String title = scanner.nextLine();
@@ -67,10 +85,11 @@ public class Main {
         System.out.println("Inserisci una luminosita' iniziale");
         int brightness = scanner.nextInt();
         Video video = new Video(title, duration, volume, brightness);
-        video.play();
+
+        return video;
     }
 
-    public static void img() {
+    public static ElementoMultimediale img() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Inserisci un titolo");
         String title = scanner.nextLine();
@@ -78,7 +97,8 @@ public class Main {
         System.out.println("Inserisci una luminosita' iniziale");
         int brightness = scanner.nextInt();
         Image img = new Image(title, brightness);
-        img.show();
+        
+        return img;
     }
 
 

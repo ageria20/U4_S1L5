@@ -10,6 +10,7 @@ public class Audio extends ElementoMultimediale implements Volume {
     public Audio(String title, int duration, int volume) {
         super(title);
         this.volume = volume;
+        this.duration = duration;
     }
 
     @Override
@@ -45,10 +46,8 @@ public class Audio extends ElementoMultimediale implements Volume {
 
     @Override
     public void play() {
-
-        for (int i = 0; i <= this.duration; i++) {
+        for (int i = 0; i < this.duration; i++) {
             System.out.println(this.getTitle() + this.volume());
         }
-
     }
 }
