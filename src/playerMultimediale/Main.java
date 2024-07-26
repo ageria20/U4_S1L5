@@ -14,8 +14,8 @@ public class Main {
         int volume = scanner.nextInt();
 
         Audio audio = new Audio(title, duration, volume);
-        audio.play();
-        audio.volumeUp();
+        System.out.println(audio.play());
+        System.out.println(audio.volumeUp());
 
 
     }

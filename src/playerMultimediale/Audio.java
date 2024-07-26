@@ -1,6 +1,8 @@
 package playerMultimediale;
 
-public class Audio extends ElementoMultimediale {
+import interfaces.Volume;
+
+public class Audio extends ElementoMultimediale implements Volume {
 
     private int volume;
 
@@ -9,23 +11,30 @@ public class Audio extends ElementoMultimediale {
         this.volume = volume;
     }
 
-    public void volumeUp() {
+    public String volumeUp() {
+        String volumeStr = "";
         for (int i = 0; i < this.volume; i++) {
-            System.out.println("!");
+            volumeStr += "!";
         }
+        return volumeStr;
     }
 
+
     // da capire
-    public void volumeDown() {
+    public String volumeDown() {
+        String volumeStr = "";
         for (int i = 0; i > this.volume; i--) {
-            System.out.println("!");
+            volumeStr += "";
         }
+        return volumeStr;
     }
 
     @Override
-    public void play() {
+    public String play() {
+        String titleStr = "";
         for (int i = 0; i < this.getDuration(); i++) {
-            System.out.println(this.getTitle());
+            titleStr += " " + this.getTitle();
         }
+        return titleStr;
     }
 }

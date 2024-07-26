@@ -19,7 +19,5 @@ public abstract class ElementoMultimediale {
         return duration;
     }
 
-    public abstract void play();
-
 
 }
